@@ -5,8 +5,4 @@
     <RootNamespace>Asp.net_Assignment</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Forms\" />
-  </ItemGroup>
-
 </Project>

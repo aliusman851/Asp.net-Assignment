@@ -1,0 +1,11 @@
+﻿@page
+@model Asp.net_Assignment.Pages.Forms.EventsModel
+@{
+    ViewData["Title"] = "Events";
+}
+<h1>Personal detail</h1>
+<form method="post">
+    <input type="text" asp-for="streetadress.streetadress" placeholder="give your adress" />
+    <input type="text" asp-for="streetadress.firstname"  placeholder="write your firstname"/>
+    <button type="submit">Button</button>
+</form>
