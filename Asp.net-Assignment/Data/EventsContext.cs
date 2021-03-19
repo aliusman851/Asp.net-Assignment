@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Asp.net_Assignment.Models;
 
 namespace Asp.net_Assignment.Data
 {
@@ -13,7 +14,11 @@ namespace Asp.net_Assignment.Data
         {
         
         }
-        DbSet<Models.ModelEvents> modelEvents { get; set; }
+       public DbSet<ModelEvents> modelEvents { get; set; }
+
+       
+
 
     }
-}
+    }
+

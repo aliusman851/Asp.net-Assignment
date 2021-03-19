@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Asp.net_Assignment.Data;
 
 namespace Asp.net_Assignment
 {
@@ -25,7 +26,7 @@ namespace Asp.net_Assignment
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddDbContext<Data.EventsContext>(options =>
+            services.AddDbContext<EventsContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DbContext")));
         }
 

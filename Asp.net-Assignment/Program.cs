@@ -30,7 +30,7 @@ namespace Asp.net_Assignment
                 {
                     var context = services.GetRequiredService<EventsContext>();
                     context.Database.EnsureCreated();
-                    // DbInitializer.Initialize(context);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -39,6 +39,7 @@ namespace Asp.net_Assignment
                 }
             }
         }
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

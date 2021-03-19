@@ -11,9 +11,9 @@ namespace Asp.net_Assignment.Pages.Forms
     public class EventsModel : PageModel
     {
         [BindProperty]
-        public ModelEvents streetadress { get; set; }
-        public ModelEvents firstnmae { get; set; }
-
+        public ModelEvents LastName { get; set; }
+        public ModelEvents FirstMidName { get; set; }
+        
 
 
         public void OnGet()
