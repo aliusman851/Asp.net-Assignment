@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 
 namespace Asp.net_Assignment.Models
 {
-    public class ModelEvents
+
+    public class Event
     {
-        public int ID { get; set; }
-        public string LastName { get; set; }
-        public string FirstMidName { get; set; }
-        public DateTime EnrollmentDate { get; set; }
+        public int EventID { get; set; }
+      
+        public string Description { get; set; }
+        public string Place { get; set; }
+        public string Adress { get; set; }
+        public DateTime Date { get; set; }
+        public string SpotsAvailable { get; set; }
+
+
+        public Organizer organizer {get; set;}
+        public Attendee Attendee { get; set; }
 
     }
     
+
 }
+   

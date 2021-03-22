@@ -30,7 +30,7 @@ namespace Asp.net_Assignment
                 {
                     var context = services.GetRequiredService<EventsContext>();
                     context.Database.EnsureCreated();
-                    
+                    context.Seed();
                 }
                 catch (Exception ex)
                 {

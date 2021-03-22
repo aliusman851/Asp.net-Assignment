@@ -28,6 +28,7 @@ namespace Asp.net_Assignment
             services.AddRazorPages();
             services.AddDbContext<EventsContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DbContext")));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
