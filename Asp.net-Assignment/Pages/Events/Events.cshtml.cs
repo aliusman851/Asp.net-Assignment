@@ -26,7 +26,7 @@ namespace Asp.net_Assignment.Pages.Forms
         {
             Event = await _context.events.ToListAsync();
         }
-
+        
 
 
 
