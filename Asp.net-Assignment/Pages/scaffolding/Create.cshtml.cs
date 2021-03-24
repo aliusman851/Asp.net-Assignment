@@ -1,34 +1,31 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Asp.net_Assignment.Data;
 using Asp.net_Assignment.Models;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Identity.UI.V4.Pages.Internal;
-using Microsoft.EntityFrameworkCore;
 
-namespace Asp.net_Assignment.Pages.Forms
+namespace Asp.net_Assignment.Pages.scaffolding
 {
-    public class EventsModel : PageModel
+    public class CreateModel : PageModel
     {
-        
-
         private readonly Asp.net_Assignment.Data.EventsContext _context;
-        public EventsModel(Asp.net_Assignment.Data.EventsContext context)
+
+        public CreateModel(Asp.net_Assignment.Data.EventsContext context)
         {
             _context = context;
         }
-        public IList<Event> Event { get; set; }
 
-        public async Task OnGetAsync()
+        public IActionResult OnGet()
         {
-            Event = await _context.events.ToListAsync();
+            return Page();
         }
 
         [BindProperty]
-        public Event Events { get; set; }
+        public Event Event { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -38,16 +35,10 @@ namespace Asp.net_Assignment.Pages.Forms
                 return Page();
             }
 
-            _context.events.Add(Events);
+            _context.events.Add(Event);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("Events.cshtml");
+            return RedirectToPage("./Index");
         }
     }
-
-
-
-
-
 }
-

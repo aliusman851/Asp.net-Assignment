@@ -52,15 +52,69 @@
                 @items.SpotsAvailable
             </td>
             <td>
-                <form>
-                    <button mehtod="post" type="submit">Join</button>
-                   
+                <a asp-page="./Pages/scaffolding/Create" >Create</a> 
+                <a asp-page="Edit" asp-route-id="@items.EventID">Edit</a> 
+                <a asp-page="Details" asp-route-id="@items.EventID">Details</a> 
+                <a asp-page="Delete" asp-route-id="@items.EventID">Delete</a>
+            </td>
+            <td>
+                <form method="post">
+                    <button class="btn-dark" type="submit">Join</button>
+
                 </form>
             </td>
         </tr>
-
-
         }
+
     </tbody>
-    </table>
+
+</table>
+
+<h1>Create</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Events.Description" class="control-label"></label>
+                <input asp-for="Events.Description" class="form-control" />
+                <span asp-validation-for="Events.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Events.Place" class="control-label"></label>
+                <input asp-for="Events.Place" class="form-control" />
+                <span asp-validation-for="Events.Place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Events.Adress" class="control-label"></label>
+                <input asp-for="Events.Adress" class="form-control" />
+                <span asp-validation-for="Events.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Events.Date" class="control-label"></label>
+                <input asp-for="Events.Date" class="form-control" />
+                <span asp-validation-for="Events.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Events.SpotsAvailable" class="control-label"></label>
+                <input asp-for="Events.SpotsAvailable" class="form-control" />
+                <span asp-validation-for="Events.SpotsAvailable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Events.cshtml">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 
