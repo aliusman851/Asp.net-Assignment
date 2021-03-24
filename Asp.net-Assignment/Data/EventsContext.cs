@@ -17,6 +17,7 @@ namespace Asp.net_Assignment.Data
         public DbSet<Models.Event> events { get; set; }
        public DbSet<Models.Organizer>organizers { get; set; }
         public DbSet<Models.Attendee> attendees { get; set; }
+        public DbSet<Models.MyEvents> myevents { get; set; }
         public void Seed()
         {
             this.Database.EnsureCreated();

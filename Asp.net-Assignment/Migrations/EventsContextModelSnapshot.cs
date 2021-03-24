@@ -77,6 +77,28 @@ namespace Asp.net_Assignment.Migrations
                     b.ToTable("events");
                 });
 
+            modelBuilder.Entity("Asp.net_Assignment.Models.MyEvents", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AttendeeID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EventID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AttendeeID");
+
+                    b.HasIndex("EventID");
+
+                    b.ToTable("myevents");
+                });
+
             modelBuilder.Entity("Asp.net_Assignment.Models.Organizer", b =>
                 {
                     b.Property<int>("OrganizerID")
@@ -111,6 +133,21 @@ namespace Asp.net_Assignment.Migrations
                     b.Navigation("Attendee");
 
                     b.Navigation("organizer");
+                });
+
+            modelBuilder.Entity("Asp.net_Assignment.Models.MyEvents", b =>
+                {
+                    b.HasOne("Asp.net_Assignment.Models.Attendee", "Attendee")
+                        .WithMany()
+                        .HasForeignKey("AttendeeID");
+
+                    b.HasOne("Asp.net_Assignment.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventID");
+
+                    b.Navigation("Attendee");
+
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("Asp.net_Assignment.Models.Attendee", b =>
