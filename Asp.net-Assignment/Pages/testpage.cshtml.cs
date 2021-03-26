@@ -17,16 +17,48 @@ namespace Asp.net_Assignment.Pages
         {
             _context = context;
         }
+        [BindProperty]
+        public MyEvents MyEvents { get; set; }
+        public Event Event { get; set; }
+        // public IList<Event> Event { get; set; }
+        // public IList<Attendee> Attendee { get; set; }
 
-        public IList<Event> Event { get; set; }
-        public IList<Attendee> Attendee { get; set; }
-
-        public async Task OnPostAsync()
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
-            var RegisteredEvent = await _context.events
-                .Include(r => r.Attendee)
-                .Include(r => r.EventID).ToListAsync();
+            Event = await _context.events.Where(e => e.EventID == id).FirstOrDefaultAsync();
+            if (Event == default)
+            {
+                return RedirectToPage("../Events/MyEvents", new { id });
+            }
+            MyEvents joinedEvent = new MyEvents()
+            {
+                Attendee = await _context.attendees.Where(a => a.ID == 1).FirstOrDefaultAsync(),
+                Event = Event,
+            };
+            _context.myevents.Add(joinedEvent);
+
+            
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("Events/MyEvents", new { id });
         }
-        
+
+       
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _context.myevents.Add(MyEvents);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("Events/Events");
+        }
     }
+
 }
+

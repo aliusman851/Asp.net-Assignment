@@ -27,6 +27,7 @@
             <th>
                 Spotsavailable
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -51,22 +52,26 @@
                 <td>
                     @items.SpotsAvailable
                 </td>
+
                 <td>
 
                     <a asp-page=/scaffolding/Edit asp-route-id="@items.EventID">Edit</a>
                     <a asp-page=/scaffolding/Details asp-route-id="@items.EventID">Details</a>
                     <a asp-page=/scaffolding/Delete asp-route-id="@items.EventID">Delete</a>
+                    <a asp-page=/Events/JoinEvent class=" btn-primary" asp-route-id="@items.EventID">Join</a>
+
                 </td>
                 <td>
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <button class="btn-dark" type="submit">Join</button>
-
-                    </form>
-                   
                 </td>
+
+                
             </tr>
+            
         }
+
+
+
+
 
     </tbody>
 

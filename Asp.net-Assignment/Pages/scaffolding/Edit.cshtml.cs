@@ -66,7 +66,7 @@ namespace Asp.net_Assignment.Pages.scaffolding
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Events/Events");
         }
 
         private bool EventExists(int id)

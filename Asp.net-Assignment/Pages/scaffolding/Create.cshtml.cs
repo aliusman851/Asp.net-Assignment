@@ -38,7 +38,7 @@ namespace Asp.net_Assignment.Pages.scaffolding
             _context.events.Add(Event);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Events/Events");
         }
     }
 }

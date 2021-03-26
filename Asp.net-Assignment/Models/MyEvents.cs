@@ -9,6 +9,8 @@ namespace Asp.net_Assignment.Models
     {
         public int ID { get; set; }
         public Attendee Attendee { get; set; }
+        public  int Attendeeid { get; set; }
         public Event Event { get; set; }
+        public int Eventid { get; set; }
     }
 }

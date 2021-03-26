@@ -5,5 +5,61 @@
 }
 <div class="text-center">
     <h1 class="display-4">My Events</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">hello ghello</a>.</p>
+    
 </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Place
+            </th>
+            <th>
+                Adress
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Spotsavailable
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var items in Model.Event)
+        {
+            <tr>
+                <td>
+                    @items.Description
+                </td>
+                <td>
+                    @items.Place
+                </td>
+                <td>
+
+                    @items.Adress
+                </td>
+                <td>
+                    @items.Date
+                </td>
+                <td>
+                    @items.SpotsAvailable
+                </td>
+
+                
+                <td>
+                </td>
+
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>

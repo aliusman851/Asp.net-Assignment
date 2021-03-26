@@ -2,34 +2,25 @@
 @model Asp.net_Assignment.Pages.testpageModel
 @{
 }
-<h1>My Events</h1>
-<p>See all events you've signed up for</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].EventID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].Date)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Event)
-        {
-            <tr>
-                <td>
-                    <a asp-page="/Pages/testpage" asp-route-id="@item.EventID">@Html.DisplayFor(modelItem => item.Description)</a>
-                </td>
-                <td>
-                    @item.Date.ToLongDateString()
-                </td>
-                <td>
-                    <a asp-page="./Delete" asp-route-id="@item.EventID">Dejoin🗑</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h1>Create</h1>
+
+<h4>AttendeeEvent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

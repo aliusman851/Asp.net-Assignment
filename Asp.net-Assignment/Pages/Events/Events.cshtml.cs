@@ -16,23 +16,36 @@ namespace Asp.net_Assignment.Pages.Forms
 
 
         private readonly Asp.net_Assignment.Data.EventsContext _context;
+
+
         public EventsModel(Asp.net_Assignment.Data.EventsContext context)
         {
             _context = context;
         }
+
+
+        
         public IList<Event> Event { get; set; }
-        public IList<Attendee> Attendee { get; set; }
-
-
+        
+       
+      
+       
         public async Task OnGetAsync()
         {
-            
+
             Event = await _context.events.ToListAsync();
 
-           
+
         }
+
+       
+
         
+
     }
+}
+       
+
 
        
 
@@ -40,5 +53,5 @@ namespace Asp.net_Assignment.Pages.Forms
 
        
 
-}
+
 
