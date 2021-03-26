@@ -7,7 +7,6 @@ namespace Asp.net_Assignment.Models
 {
     public class Organizer
     {
-
         public int OrganizerID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }

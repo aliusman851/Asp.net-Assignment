@@ -23,26 +23,15 @@ namespace Asp.net_Assignment.Pages.Forms
             _context = context;
         }
 
-
-        
         public IList<Event> Event { get; set; }
         
-       
-      
-       
         public async Task OnGetAsync()
         {
 
             Event = await _context.events.ToListAsync();
 
-
-        }
-
-       
-
-        
-
-    }
+           }
+       }
 }
        
 

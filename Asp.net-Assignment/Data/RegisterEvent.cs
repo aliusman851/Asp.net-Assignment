@@ -19,7 +19,6 @@ namespace Asp.net_Assignment.Data
                 Attendeeid = attendeeId,
                 Eventid = eventId,
             };
-
             context.myevents.Add(MyEvents);
             context.SaveChanges();
         }

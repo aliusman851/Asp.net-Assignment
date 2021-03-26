@@ -6,8 +6,8 @@
 }
 <div class="text-center">
     <h1>Events Detail</h1>
-
 </div>
+
 <a asp-page=/scaffolding/Create>Create Event</a>
 <table class="table">
     <thead>
@@ -27,12 +27,12 @@
             <th>
                 Spotsavailable
             </th>
-            
+
             <th></th>
         </tr>
     </thead>
-    <tbody>
 
+    <tbody>
         @foreach (var items in Model.Event)
         {
             <tr>
@@ -54,24 +54,17 @@
                 </td>
 
                 <td>
-
                     <a asp-page=/scaffolding/Edit asp-route-id="@items.EventID">Edit</a>
                     <a asp-page=/scaffolding/Details asp-route-id="@items.EventID">Details</a>
                     <a asp-page=/scaffolding/Delete asp-route-id="@items.EventID">Delete</a>
                     <a asp-page=/Events/JoinEvent class=" btn-primary" asp-route-id="@items.EventID">Join</a>
-
                 </td>
+
                 <td>
                 </td>
-
-                
             </tr>
-            
+
         }
-
-
-
-
 
     </tbody>
 
