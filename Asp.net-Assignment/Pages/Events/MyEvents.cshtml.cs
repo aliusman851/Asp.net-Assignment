@@ -24,11 +24,11 @@ namespace Asp.net_Assignment.Pages.Forms
         {
             _context = context;
         }
-        public IList<MyEvents> myEvents { get; set; }
+        public IList<Event> Events { get; set; }
         public async Task OnGetAsync()
         {
 
-            myEvents = await _context.myevents.ToListAsync();
+            Events = await _context.events.ToListAsync();
 
 
         }

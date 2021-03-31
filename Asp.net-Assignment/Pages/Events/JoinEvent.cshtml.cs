@@ -40,12 +40,25 @@ namespace Asp.net_Assignment.Pages.Events
             }
             return Page();
         }
-        public async Task OnPostAsync(string id)
+        /*  public async Task OnPostAsync(int id)
+          {
+              Attendee = await _context.attendees.FirstOrDefaultAsync();
+             JoinEvent  = await _context.events.FirstOrDefaultAsync(m => m.EventID == id);
+              RegisterEvent.Register(_context, Attendee.ID, JoinEvent.EventID);
+              req = "post";
+          }*/
+        
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            Attendee = await _context.attendees.FirstOrDefaultAsync();
-           JoinEvent  = await _context.events.Include(s => s.organizer).FirstOrDefaultAsync(m => m.EventID == Int32.Parse(id));
-            RegisterEvent.Register(_context, Attendee.ID, JoinEvent.EventID);
-            req = "post";
+
+            var attendee = await _context.attendees.Where(a => a.ID == id).Include(e => e.Event).FirstOrDefaultAsync();
+
+            var join = await _context.events.Where(e => e.EventID == id).FirstOrDefaultAsync();
+
+            attendee.Event.Add(join);
+            await _context.SaveChangesAsync();
+            return RedirectToPage("/Events/MyEvents");
+
         }
 
     }
