@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Asp.net_Assignment.Data;
+using Asp.net_Assignment.Models;
 
 namespace Asp.net_Assignment
 {
@@ -28,7 +29,9 @@ namespace Asp.net_Assignment
             services.AddRazorPages();
             services.AddDbContext<EventsContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DbContext")));
-            
+            services.AddDefaultIdentity<User>()
+                .AddEntityFrameworkStores<EventsContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +53,7 @@ namespace Asp.net_Assignment
 
             app.UseRouting();
 
+            app.UseAuthorization();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

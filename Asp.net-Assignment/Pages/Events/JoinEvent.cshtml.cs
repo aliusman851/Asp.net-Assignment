@@ -22,9 +22,7 @@ namespace Asp.net_Assignment.Pages.Events
         }
         [BindProperty]
         public Event JoinEvent { get; set; }
-        public Attendee Attendee { get; set; }
-        public Organizer organizer { get; set; }
-        public string req;
+      
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -51,11 +49,11 @@ namespace Asp.net_Assignment.Pages.Events
         public async Task<IActionResult> OnPostAsync(int? id)
         {
 
-            var attendee = await _context.attendees.Where(a => a.ID == id).Include(e => e.Event).FirstOrDefaultAsync();
+            //var attendee = await _context.attendees.Where(a => a.ID == id).Include(e => e.Event).FirstOrDefaultAsync();
 
             var join = await _context.events.Where(e => e.EventID == id).FirstOrDefaultAsync();
 
-            attendee.Event.Add(join);
+           // attendee.Event.Add(join);
             await _context.SaveChangesAsync();
             return RedirectToPage("/Events/MyEvents");
 
