@@ -10,16 +10,20 @@ namespace Asp.net_Assignment.Models
     public class Event
     {
         public int EventID { get; set; }
-      
+
         public string Description { get; set; }
         public string Place { get; set; }
         public string Adress { get; set; }
         public DateTime Date { get; set; }
         public string SpotsAvailable { get; set; }
 
+       [InverseProperty("JoindEvents")]
+        public List<User> Attendees { get; set; }
 
-        public Organizer organizer {get; set;}
-        public Attendee Attendee { get; set; }
+        [InverseProperty("HostedEvents")]
+        public User organizer {get; set;}
+
+       
 
     }
     
